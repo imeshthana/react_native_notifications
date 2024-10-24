@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "521193019339",
+    "project_id": "notifications-react-nati-a29d3",
+    "storage_bucket": "notifications-react-nati-a29d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521193019339:android:c20a1509bf861f4488084e",
+        "android_client_info": {
+          "package_name": "com.imeshthana.react_native_notifications"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlO66uTEhvYpW9HnbKZaUgIvOVp9BeoTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

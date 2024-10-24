@@ -18,10 +18,18 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.imeshthana.react_native_notifications"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1fbaaf04-863b-4dd6-87f5-7b558b8fe9d2"
+      },
+      "owner": "imeshthana"
     }
+    
   }
 }
