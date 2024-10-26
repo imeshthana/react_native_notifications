@@ -6,13 +6,25 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_USE_LEGACY_DEPS": "true",
+        "FLIPPER_VERSION": "0.270.0"
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_USE_LEGACY_DEPS": "true",
+        "FLIPPER_VERSION": "0.270.0"
+      }
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "env": {
+        "EXPO_USE_LEGACY_DEPS": "true",
+        "FLIPPER_VERSION": "0.270.0"
+      }
     }
   },
   "submit": {

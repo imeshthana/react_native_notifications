@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Alert, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import React , {useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from 'react';
@@ -7,9 +7,9 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import moment from 'moment';
 
 export default function Notifications() {
-
   const [notifications, setNotifications] = useState([]);
 
+// Function to retrieve notifications from AsyncStorage
   const getStoredNotifications = async () => {
     try {
       const storedNotifications = await AsyncStorage.getItem('notifications');
@@ -23,10 +23,12 @@ export default function Notifications() {
     }
   };
 
+// Fetch stored notifications initially
   useEffect(() => {
     getStoredNotifications();
   },[]);
 
+// Function to delete all stored notifications from AsyncStorage.
   const deleteAllNotifications = async () => {
     try {
       await AsyncStorage.removeItem('notifications');
@@ -36,6 +38,7 @@ export default function Notifications() {
     }
   };
 
+// Helper function to format the notification date for display
   const getFormattedDate = (time) => {
     const notificationDate = moment(time);
     const today = moment().startOf('day');
@@ -49,13 +52,15 @@ export default function Notifications() {
     }
   };
 
+  // Function to render a single notification item in the list
   const renderNotificationItem = ({ item }) => (
     <View style={styles.notificationCard}>
-      <Text style={styles.dateText}>{getFormattedDate(item.time)}</Text>
-      {item.image && (
+      {item.image ? 
         <Image source={{ uri: item.image }} style={styles.notificationImage} />
-      )}
+        : <Image source={{ uri: 'https://via.placeholder.com/150' }} style={styles.notificationImage}/>
+      }
       <View style={styles.notificationContent}>
+        <Text style={styles.dateText}>{getFormattedDate(item.time)}</Text>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.message}>{item.msg}</Text>
       </View>
@@ -86,6 +91,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    marginBottom: 20,
   },
   header: {
     marginTop:20,
@@ -94,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', 
     paddingHorizontal: 16,
     paddingVertical: 20,
-    backgroundColor: '#6200EE',
+    backgroundColor: '#fff',
 },
 iconWrapper: {
     width: 24, 
@@ -105,13 +111,14 @@ dateText: {
   textAlign: 'right',
 },
   headerText: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
   },
   notificationCard: {
     flexDirection: 'row',
-    padding: 16,
+    padding: 10,
+    marginHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
     alignItems: 'center',
@@ -119,6 +126,7 @@ dateText: {
   notificationImage: {
     width: 50,
     height: 50,
+    marginTop: 15,
     marginRight: 16,
     borderRadius: 25,
   },
