@@ -2,8 +2,8 @@
 
 # dependencies
 node_modules/
-google-services.json
 notifications-react-nati-a29d3-firebase-adminsdk-5x4u4-2a812183af.json
+google-services.json
 
 # Expo
 .expo/
